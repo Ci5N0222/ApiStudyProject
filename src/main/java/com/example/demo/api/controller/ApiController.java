@@ -18,7 +18,6 @@ public class ApiController {
 	@GetMapping("/")
 	public ModelAndView home() {
 		ModelAndView mav = new ModelAndView("/index.html");
-		
 		return mav;
 	}
 	
