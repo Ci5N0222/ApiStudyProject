@@ -1,5 +1,7 @@
 package com.example.demo.api.controller;
 
+import java.util.HashMap;
+
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,11 +20,13 @@ public class RequestBodyController {
 
 	@GetMapping("/getbody")
 	public String getbody(
-			@RequestBody ApiDTO apiDTO) {
+			@RequestBody ApiDTO apiDTO,
+			HashMap<String, Object> map) {
 		
 		String strResult = "{ \"result\":\"FAIL\" }";
 		
 		try {
+			// dto
 			String name = apiDTO.getName();
 			name(name);
 			strResult = "{ \"result\":\"OK\" }";
@@ -51,14 +55,15 @@ public class RequestBodyController {
 	
 	@PutMapping("/putbody")
 	public String putbody(
-			@RequestBody ApiDTO apiDTO) {
+			@RequestBody HashMap<String, Object> map,
+			ApiDTO apiDTO) {
 		
 		String strResult = "{ \"result\":\"FAIL\" }";
 		
 		try {
 			
-			String name = apiDTO.getName();
-			name(name);
+			apiDTO.setName(String.valueOf(map.get("name")));
+			name(apiDTO.getName());
 			strResult = "{ \"result\":\"OK\" }";
 		} catch(Exception e) {
 			
@@ -68,14 +73,15 @@ public class RequestBodyController {
 	
 	@DeleteMapping("/deletebody")
 	public String deletebody(
-			@RequestBody ApiDTO apiDTO) {
+			@RequestBody HashMap<String, Object> map,
+			ApiDTO apiDTO) {
 		
 		String strResult = "{ \"result\":\"FAIL\" }";
 		
 		try {
 			
-			String name = apiDTO.getName();
-			name(name);
+			apiDTO.setName(String.valueOf(map.get("name")));
+			name(apiDTO.getName());
 			strResult = "{ \"result\":\"OK\" }";
 		} catch(Exception e) {
 			
