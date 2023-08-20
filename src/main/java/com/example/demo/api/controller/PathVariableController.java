@@ -26,7 +26,7 @@ public class PathVariableController {
 		}catch(Exception e) {
 			
 		}
-		return "";
+		return strResult;
 	}
 	
 	@PostMapping("/postpath/{postpath}")
@@ -41,7 +41,7 @@ public class PathVariableController {
 		}catch(Exception e) {
 			
 		}
-		return "";
+		return strResult;
 	}
 	
 	@PatchMapping("/patchpath/{patchpath}")
@@ -56,7 +56,7 @@ public class PathVariableController {
 		}catch(Exception e) {
 			
 		}
-		return "";
+		return strResult;
 	}
 	
 	@DeleteMapping("/deletepath/{deletepath}")
@@ -71,7 +71,7 @@ public class PathVariableController {
 		}catch(Exception e) {
 			
 		}
-		return "";
+		return strResult;
 	}
 	
 }
